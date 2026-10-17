@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>RAP ARCHIV — Deutschrap entdecken</title>
+<style>
+:root{color-scheme:dark;--bg:#000;--panel:#0b0b0b;--panel2:#151515;--text:#fff;--muted:#aaa;--line:#303030;--accent:#fff;--accent-ink:#000;--red:#fff;--shadow:0 12px 40px #00000020}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}#app{min-height:100vh;background:var(--bg);border-radius:0}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,64px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;background:var(--bg)}.brand{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:950;letter-spacing:-.05em}.brand-mark{display:grid;place-items:center;width:34px;height:34px;background:var(--accent);color:#111;border-radius:10px;font-size:15px;transform:rotate(-5deg)}.brand span:last-child{letter-spacing:.1em}.nav{display:flex;gap:24px;font-size:12px;font-weight:750;color:var(--muted)}.nav a{text-decoration:none}.nav a:hover{color:var(--text)}.top-right{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);border-radius:99px;padding:9px 13px;font-size:11px;font-weight:800}.pill.live{background:var(--accent);color:#111;border-color:var(--accent)}.hero{padding:clamp(38px,7vw,88px) clamp(18px,6vw,88px) 38px;max-width:1500px;margin:auto}.eyebrow{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";width:22px;height:2px;background:var(--red)}h1{font-size:clamp(48px,9vw,118px);line-height:.88;letter-spacing:-.085em;margin:23px 0 22px;font-weight:950;max-width:980px}h1 em{font-style:normal;color:var(--muted)}.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:28px}.hero-copy{font-size:15px;line-height:1.65;color:var(--muted);max-width:440px}.hero-stat{display:flex;gap:28px}.stat strong{display:block;font-size:27px;letter-spacing:-.06em}.stat span{font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-weight:800}.search-wrap{padding:0 clamp(18px,6vw,88px) 30px;max-width:1500px;margin:auto}.search-panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:12px;display:flex;gap:10px;align-items:center;box-shadow:var(--shadow)}.search-icon{padding-left:12px;color:var(--muted);font-size:20px}.search-panel input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:12px 4px;color:var(--text);font-size:14px}.search-panel input::placeholder{color:var(--muted)}.search-panel select{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:10px;padding:12px;max-width:230px;font-size:12px}.content{max-width:1500px;margin:auto;padding:0 clamp(18px,6vw,88px) 100px}.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin:20px 0 18px;gap:20px}.section-head h2{font-size:25px;letter-spacing:-.055em;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:7px 0 0}.category-strip{display:flex;gap:8px;overflow:auto;padding:2px 0 22px;scrollbar-width:thin}.category-chip{white-space:nowrap;border:1px solid var(--line);border-radius:99px;padding:10px 14px;background:transparent;color:var(--muted);font-size:11px;font-weight:800}.category-chip.active,.category-chip:hover{background:var(--accent);border-color:var(--accent);color:#141414}.main-grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:24px;align-items:start}.artists-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.artist-card{position:relative;min-height:148px;text-align:left;padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--text);overflow:hidden;transition:transform .18s,border-color .18s}.artist-card:hover{transform:translateY(-3px);border-color:var(--muted)}.artist-card.selected{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.artist-card:after{content:attr(data-initial);position:absolute;right:-3px;bottom:-24px;font-size:88px;font-weight:950;letter-spacing:-.1em;color:var(--panel2);line-height:1;pointer-events:none}.artist-index{font-size:10px;color:var(--muted);font-weight:800}.artist-name{display:block;position:relative;z-index:1;font-weight:900;font-size:15px;letter-spacing:-.04em;margin-top:27px;max-width:100%;overflow-wrap:anywhere}.artist-meta{display:block;position:relative;z-index:1;font-size:10px;color:var(--muted);margin-top:5px}.artist-card .arrow{position:absolute;right:13px;top:12px;font-size:14px;color:var(--muted);z-index:2}.empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:15px;padding:40px;text-align:center;color:var(--muted);font-size:13px}.player{position:sticky;top:92px;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}.player-top{padding:17px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.player-title{font-size:11px;font-weight:950;letter-spacing:.13em}.live-dot{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:900;color:var(--muted);letter-spacing:.12em}.live-dot:before{content:"";width:6px;height:6px;background:var(--red);border-radius:50%}.video-frame{aspect-ratio:16/9;background:#090909;display:flex;align-items:center;justify-content:center;color:#aaa;position:relative}.video-frame iframe{width:100%;height:100%;border:0}.player-empty{text-align:center;padding:22px;max-width:250px}.play-symbol{width:50px;height:50px;display:grid;place-items:center;background:var(--accent);color:#111;border-radius:50%;font-size:19px;margin:0 auto 14px}.player-empty strong{display:block;color:#eee;font-size:13px}.player-empty p{font-size:11px;line-height:1.5;color:#999}.now-playing{padding:17px 18px 9px}.now-playing small{font-size:9px;color:var(--muted);font-weight:900;letter-spacing:.15em;text-transform:uppercase}.now-playing h3{font-size:19px;letter-spacing:-.05em;margin:7px 0 4px;overflow-wrap:anywhere}.now-playing p{font-size:12px;color:var(--muted);margin:0}.player-actions{display:flex;gap:8px;padding:12px 18px 18px}.action{display:inline-flex;justify-content:center;align-items:center;gap:7px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--text);padding:11px 12px;text-decoration:none;font-size:11px;font-weight:850;flex:1}.action.primary{background:var(--accent);border-color:var(--accent);color:#111}.player-note{border-top:1px solid var(--line);padding:12px 18px;font-size:10px;color:var(--muted);line-height:1.5}.songs-section{margin-top:44px;scroll-margin-top:100px}.songs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:15px}.songs-head h2{font-size:clamp(25px,4vw,36px);letter-spacing:-.065em;margin:0}.songs-head p{color:var(--muted);font-size:12px;margin:6px 0 0}.song-list{border-top:1px solid var(--line)}.song-row{display:grid;grid-template-columns:38px minmax(0,1fr) auto 36px;align-items:center;gap:12px;padding:13px 12px;border-bottom:1px solid var(--line);transition:background .15s}.song-row:hover,.song-row.playing{background:var(--panel)}.song-num{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}.song-name{font-size:13px;font-weight:850;letter-spacing:-.02em}.song-artist{font-size:11px;color:var(--muted);margin-top:4px}.song-tag{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:850;border:1px solid var(--line);padding:6px 8px;border-radius:99px;color:var(--muted)}.song-play{width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--text);font-size:12px}.song-play:hover{background:var(--accent);color:#111;border-color:var(--accent)}.footer{border-top:1px solid var(--line);padding:26px clamp(18px,6vw,88px);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:10px;max-width:1500px;margin:auto}.notice{background:var(--panel2);border:1px solid var(--line);padding:13px 15px;border-radius:12px;font-size:11px;line-height:1.5;color:var(--muted);margin-top:14px}.notice strong{color:var(--text)}.mobile-player-button{display:none}
+@media(max-width:1100px){.main-grid{grid-template-columns:minmax(0,1fr) 290px}.artists-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.nav{gap:14px}}
+@media(max-width:760px){.topbar{height:62px;padding:0 17px}.nav{display:none}.pill{padding:8px 10px}.hero{padding:48px 20px 28px}.hero-bottom{display:block}.hero-stat{margin-top:22px;gap:24px}.search-wrap{padding:0 16px 20px}.search-panel{flex-wrap:wrap;gap:6px}.search-panel input{flex-basis:calc(100% - 55px)}.search-panel select{max-width:none;width:100%}.content{padding:0 16px 70px}.main-grid{display:flex;flex-direction:column}.artists-area{width:100%}.artists-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.artist-card{min-height:132px;padding:13px}.artist-name{font-size:14px;margin-top:25px}.player{position:relative;top:auto;width:100%;order:-1}.video-frame{max-height:240px}.section-head h2{font-size:22px}.songs-section{margin-top:32px}.song-row{grid-template-columns:25px minmax(0,1fr) 32px;gap:9px;padding:13px 4px}.song-tag{display:none}.song-name{font-size:12px}.footer{padding:24px 18px;flex-direction:column}.hero h1{font-size:clamp(54px,16vw,88px)}}
+@media(min-width:761px){.player{grid-column:2;grid-row:1 / span 2}.artists-area{grid-column:1;grid-row:1}}
+</style>
+<style>
+body,#app,.topbar{background:#000;color:#fff}
+.brand-mark,.pill.live,.category-chip.active,.category-chip:hover,.play-symbol,.action.primary,.song-play:hover{background:#fff!important;color:#000!important;border-color:#fff!important}
+.eyebrow:before,.live-dot:before{background:#fff}
+.artist-card.selected{border-color:#fff;box-shadow:inset 0 0 0 1px #fff}
+.artist-card:after{color:#1b1b1b}
+.pill,.category-chip,.artist-card,.player,.search-panel,.search-panel select,.song-row,.action,.notice{border-color:#333}
+.song-row:hover,.song-row.playing{background:#111}
+</style>
+<style>
+.player-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.action{min-width:0;padding:10px 7px;font-size:10px}
+.audio-preview-wrap{width:100%;height:100%;min-height:180px;padding:20px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.audio-preview-wrap audio{width:100%}
+.audio-source-label{font-size:10px;line-height:1.5;color:#aaa;text-align:center}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Rap Archiv Startseite"><span class="brand-mark">R.</span><span>RAP ARCHIV</span></a>
+  <nav class="nav" aria-label="Hauptnavigation"><a href="#library">Bibliothek</a><a href="#songs">Songliste</a><a href="#player">Player</a></nav>
+  <div class="top-right"><span class="pill">DE / RAP</span><span class="pill live">● PLAY YOURS</span></div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="eyebrow">Die Kultur. Die Stimmen. Die Tracks.</div>
+  <h1>DEUTSCHRAP.<br><em>Dein Archiv.</em></h1>
+  <div class="hero-bottom"><div class="hero-copy">Von Frankfurt bis Hamburg, von den Classics bis zum Sound von morgen. Entdecke Künstler und spiele verfügbare Hörproben direkt hier ab. Eigene Audiodateien lassen sich ebenfalls im Player nutzen.</div><div class="hero-stat"><div class="stat"><strong id="artistCount">—</strong><span>Künstler</span></div><div class="stat"><strong id="songCount">—</strong><span>Tracks gelistet</span></div><div class="stat"><strong>06</strong><span>Genres</span></div></div></div>
+</section>
+<section class="search-wrap" aria-label="Suche und Filter"><div class="search-panel"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Rapper, Song oder Künstler suchen …" autocomplete="off" aria-label="Rapper oder Song suchen"><select id="categorySelect" aria-label="Kategorie filtern"><option value="all">Alle Kategorien</option></select></div></section>
+<section class="content" id="library">
+  <div class="section-head"><div><h2>Finde deinen Sound.</h2><p>Wähle einen Künstler und entdecke seine bekannten Tracks.</p></div><span class="pill" id="resultCount">Bibliothek</span></div>
+  <div class="category-strip" id="categoryStrip" aria-label="Schnellfilter für Kategorien"></div>
+  <div class="main-grid">
+    <div class="artists-area"><div class="artists-grid" id="artistsGrid"></div><div class="notice" id="emptyArtists" hidden>Keine Künstler gefunden. Passe deine Suche oder den Filter an.</div></div>
+    <aside class="player" id="player" aria-label="Musikplayer"><div class="player-top"><span class="player-title">RAP ARCHIV PLAYER</span><span class="live-dot">PLAYER READY</span></div><div class="video-frame" id="videoFrame"><div class="player-empty"><div class="play-symbol">▶</div><strong>Dein nächster Track wartet.</strong><p>Wähle einen Titel. Verfügbare Hörproben starten hier im Player.</p></div></div><div class="now-playing"><small>Ausgewählter Track</small><h3 id="nowTitle">Noch kein Song gewählt</h3><p id="nowArtist">Wähle einen Track, um loszulegen.</p></div><div class="player-actions"><a class="action primary" id="youtubeLink" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">▶ Spotify öffnen</a><a class="action" id="appleMusicLink" href="https://music.apple.com/de/browse" target="_blank" rel="noopener noreferrer">Apple Music</a><a class="action" id="soundcloudLink" href="https://soundcloud.com/" target="_blank" rel="noopener noreferrer">SoundCloud</a><button class="action" id="clearPlayer" type="button">Zurücksetzen</button></div><div class="player-note" id="playerNote">Der Player sucht nach einer verfügbaren Musik-Hörprobe. Alternativ kannst du lokale Audiodateien laden oder einen Streaming-Dienst öffnen.</div></aside>
+    <section class="songs-section" id="songs"><div class="songs-head"><div><h2 id="songHeading">Tracks entdecken</h2><p id="songSubheading">Bekannte Titel aus der Deutschrap-Bibliothek.</p></div><span class="pill" id="trackBadge">Alle Tracks</span></div><div class="song-list" id="songList"></div><div class="notice" id="emptySongs" hidden>Keine Tracks passend zur Suche gefunden.</div></section>
+  </div>
+</section>
+</main>
+<footer class="footer"><span>RAP ARCHIV © 2026 · Eine Bibliothek für Deutschrap.</span><span>Tracktitel sind kuratierte bekannte Veröffentlichungen. Hörproben abhängig vom Musikdienst und Rechteinhabern.</span></footer>
+</div>
+<script>
+const categories = [
+ {name:'Frankfurt & Azzlack',artists:['Haftbefehl','Amo','Celo & Abdi','Capo','Nimo','Soufian','Azad','Olexesh','Haaland936']},
+ {name:'Straßenrap',artists:['Bushido','GZUZ','Xatar','Farid Bang','HoodBlaq','Samra','Gringo','102 Boyz','AK Ausserkontrolle']},
+ {name:'Drill & New Wave',artists:['Luciano','SSIO']}
+];
+const tracks = {
+'Haftbefehl':['Chabos wissen wer der Babo ist','069','RADW','1999 Pt. 5','CopKKKilla','Lass die Affen aus’m Zoo','Mama','Bolon'],
+'Amo':['Capri Sun'],
+'Celo & Abdi':['Besuchstag','Hektiks','Parallelen','Nur noch 60 Sekunden','Diaspora','Underground'],
+'Capo':['Lambo Diablo GT','Run Run Run','Is It Love','Alles auf Rot','Champagner für alle'],
+'Nimo':['Heute mit mir','Michelangelo','Nie wieder','Karma','Wieder mal'],
+'Soufian':['Hab die Straße im Blut','Im selben Boot','Alles was ich brauch'],
+'Hanybal':['Vanilla Sky','Haram para','Ghetto Philharmonie'],
+'Haaland936':['Sossenheim'],
+'Gringo':['Kuku SLS','Pennen'],
+'102 Boyz':['Bier','Assozial'],
+'AK Ausserkontrolle':['Jim Beam & Voddi','Echte Berliner','P跟'],
+'SSIO':['Nuttööö','Nullkommaneun','SIMON sagt','HULK'],
+'Azad':['Ich glaub an dich','Phoenix','Prison Break Anthem','Alles Lüge'],
+'Olexesh':['Purple Haze'],
+'GZUZ':['Was hast du gedacht','CL500','Warum','Drück Drück',' optimal'.trim(),'Kokain','Wenn ich will'],
+'Bonez MC':['Palmen aus Plastik','Honda Civic','Shotz Fired','An ihnen vorbei','Big Body Benz','Taxi','500 PS'],
+'Xatar':['Baba aller Babas','Iz da','Mein Mantel','Original','Oh mein Gott'],
+'Farid Bang':['Banger Musik','Jung, brutal, gutaussehend','Bitte Spitte Toi Lab','Am Ziel','Alle gegen den Einen'],
+'Bushido':['Alles verloren','Sonnenbank Flavour','Zeiten ändern dich','Für immer jung','Stress ohne Grund','Nie ein Rapper'],
+'Kollegah':['King','Alpha','Du bist Boss','John Gotti','Lamborghini','Rotlichtmassaker'],
+'Samra':['Cataleya','Rohdiamant','Harami','Nummer 1','110','Colt'],
+'HoodBlaq':['Bando','Blaq on Blaq','Moonlight'],
+'187 Strassenbande':['Extasy','Mit den Jungs','HaifischNikez','Freitag','Millionär'],
+'Kontra K':['Erfolg ist kein Glück','An deiner Seite','Puste sie weg','Kampfgeist 4','Die letzten Wölfe'],
+'KC Rebell':['DNA','Bist du real','Quarterback','Leer','Murcielago'],
+'Fler':['NDW 2005','Das alles ist Deutschland','Neue Deutsche Welle','Vibe'],
+'Luciano':['Beautiful Girl','SUVs','Meer','Bamba','Peppermint','Time','Majestic'],
+'Mero':['Baller los','Wolke 10','Hobby Hobby','Ferrari','Olabilir'],
+'Apache 207':['Roller','200 km/h','Bläulich','Fame','Komet','Breaking your heart','Vodka'],
+'Ufo361':['Nice Girl 2.0','Emotions','Allein sein','Beverly Hills','Stay High','Nur zur Info'],
+'Pashanim':['Airwaves','Sommergewitter','Hauseingang','Shababs botten','Paris Freestyle'],
+'Ski Aggu':['Party Sahne','Friesenjung',' mietfrei'.trim(),' denk mal drüber nach…'.trim(),'Theater'],
+'reezy':['Palace','Expensive Shit','Feelings','Sandmann','Tiffany'],
+'01099':['Durstlöscher','Anders','Jacke zu','Pistazieneis','Küssen'],
+'Elias':['Chérie','High sein','Lauf'],
+'makko':['Nachts wach','Paar Fotos','Kein Schlaf'],
+'Jamule':['Liege wieder wach','Ich hol dich ab','NBA','Unterwegs'],
+'T-Low':['Crashen','We Made It','Ordentlich','Sehnsucht'],
+'RAF Camora':['Primo','Ohne mein Team','500 PS','Adriana','Vienna','Andere Liga'],
+'Bausa':['Was du Liebe nennst','Mary','Madonna',' neun Leben'.trim(),'Vermisst'],
+'Trettmann':['Grauer Beton','New York','Stolpersteine','DIY','Knöcheltief'],
+'RIN':['Dior 2001','Monica Bellucci','Vintage','Bros','Blackout'],
+'Juju':['Vermissen','Hi Babe','Hardcore High','Live Bitch'],
+'Loredana':['Sonnenbrille','Eiskalt','Kein Hunger','Genick'],
+'Shirin David':['Gib ihm','90-60-111','Lieben wir','Bauch Beine Po','Ich darf das'],
+'Cro':['Easy','Traum','Bye Bye','Einmal um die Welt','Unendlichkeit'],
+'Sido':['Bilder im Kopf','Mein Block','Astronaut','Tausend Tattoos','Liebe','Augen auf'],
+'Kool Savas':['King of Rap','Aura','AMG','Mona Lisa','Alle schieben Optik'],
+'K.I.Z':['Hurra die Welt geht unter','Ein Affe und ein Pferd','Ich bin Adolf Hitler','Geld essen','Sommer meines Lebens'],
+'Die Fantastischen Vier':['Die da!?','MFG','Troy','Zusammen'],
+'Samy Deluxe':['Weck mich auf','Poesie Album','Hab gehört','Superheld'],
+'Curse':['Und was ist jetzt','Bis zum Schluss','Gangsta Rap'],
+'Torch':['Wir waren mal Stars','Blauer Samt'],
+'Beginner':['Ahnma','Es war einmal','Liebes Lied',' Füchse'.trim()],
+'OG Keemo':['216','Vögel','Civic','Geist','Töle','Fieber'],
+'Audio88 & Yassin':['Halleluja','Schlechtes Gewissen','WUP','Gnade'],
+'Prezident':['Alles ist voll von Göttern','Menschenpyramiden','Limbus'],
+'Tua':['Vater','Vorstadt','Wem mach ich was vor'],
+'Döll':['Weit entfernt','5 Sekunden','Schon okay'],
+'Mädness':['Maggo','OG','Ich mach’s'],
+'Kwam.E':['Regen','Gib ihm','Maybach'],
+'Takt32':['Ostblock','Mensch sein','Kopf hoch'],
+'Disarstar':['Rolex für alle','Alice','Nachbarschaft'],
+'Haiyti':['Coco Chanel','100.000 Fans','Mafioso'],
+'Eunique':['Check','Bad Girl','Gift'],
+'Zugezogen Maskulin':['Alle gegen alle','Plattenbau O.S.T.','Was für eine Zeit']
+};
+const uniqueCategories = categories.map(c=>({...c,artists:[...new Set(c.artists)]}));
+const artistMap = new Map();
+uniqueCategories.forEach(c=>c.artists.forEach(name=>{if(!artistMap.has(name))artistMap.set(name,{name,category:c.name,songs:tracks[name]||[]})}));
+const artists = [...artistMap.values()].filter(a=>a.songs.length>0).sort((a,b)=>a.name.localeCompare(b.name,'de'));
+const allSongs = artists.flatMap(a=>a.songs.map(title=>({title,artist:a.name,category:a.category})));
+const $ = id=>document.getElementById(id);
+let activeCategory='all', selectedArtist=null, selectedSong=null;
+$('artistCount').textContent=artists.length;
+$('songCount').textContent=allSongs.length;
+let localAudioFiles=[];
+let localAudioObjectUrl=null;
+const localAudioBox=document.createElement('div');
+localAudioBox.className='player-note';
+localAudioBox.style.borderTop='1px solid #333';
+localAudioBox.innerHTML='<strong>Offline-Player</strong><p style="margin:6px 0 10px">Audiodateien von deinem Gerät laden — funktioniert ohne YouTube.</p><input id="localAudioInput" type="file" accept="audio/*,.mp3,.m4a,.ogg,.wav,.flac" multiple style="display:block;width:100%;font-size:10px;color:#aaa"><p id="localAudioStatus" style="margin:8px 0 0">Noch keine lokalen Dateien geladen.</p><audio id="localAudioPlayer" controls style="display:none;width:100%;margin-top:10px"></audio>';
+$('player').insertBefore(localAudioBox,$('player').querySelector('.now-playing'));
+const localAudioInput=$('localAudioInput');
+localAudioInput.addEventListener('change',()=>{
+ localAudioFiles=[...(localAudioInput.files||[])];
+ $('localAudioStatus').textContent=localAudioFiles.length?`${localAudioFiles.length} Audiodatei(en) geladen. Wähle einen passenden Songtitel in RAP ARCHIV.`:'Noch keine lokalen Dateien geladen.';
+});
+function norm(s){return s.toLocaleLowerCase('de').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'')}
+function cleanMatch(s){return norm(s).replace(/[^a-z0-9]/g,'')}
+function matchLocalAudio(song){
+ const title=cleanMatch(song.title),artist=cleanMatch(song.artist);
+ const candidates=localAudioFiles.map(file=>({file,name:cleanMatch(file.name)})).filter(item=>title.length>1&&item.name.includes(title));
+ candidates.sort((a,b)=>Number(b.name.includes(artist))-Number(a.name.includes(artist)));
+ return candidates[0]?.file||null;
+}
+function buildFilters(){
+ $('categorySelect').innerHTML='<option value="all">Alle Kategorien</option>';
+ uniqueCategories.forEach(c=>{const o=document.createElement('option');o.value=c.name;o.textContent=c.name;$('categorySelect').append(o)});
+ $('categoryStrip').innerHTML='';
+ [['all','Alle'],...uniqueCategories.map(c=>[c.name,c.name])].forEach(([value,label])=>{const b=document.createElement('button');b.className='category-chip'+(activeCategory===value?' active':'');b.textContent=label;b.type='button';b.onclick=()=>{activeCategory=value;$('categorySelect').value=value;renderAll()};$('categoryStrip').append(b)});
+}
+function filteredArtists(){const q=norm($('search').value.trim());return artists.filter(a=>(activeCategory==='all'||a.category===activeCategory)&&(!q||norm(a.name).includes(q)||a.songs.some(s=>norm(s).includes(q)))}
+function renderArtists(){const list=filteredArtists();$('artistsGrid').innerHTML='';$('emptyArtists').hidden=list.length>0;list.forEach((a,i)=>{const b=document.createElement('button');b.type='button';b.className='artist-card'+(selectedArtist===a.name?' selected':'');b.dataset.initial=a.name.replace(/[^A-Za-zÄÖÜäöü]/g,'').slice(0,1).toUpperCase();b.innerHTML=`<span class="artist-index">ARTIST / ${String(i+1).padStart(2,'0')}</span><span class="arrow">↗</span><span class="artist-name"></span><span class="artist-meta">${a.songs.length} Tracks · ${a.category}</span>`;b.querySelector('.artist-name').textContent=a.name;b.onclick=()=>{selectedArtist=a.name;renderAll();$('songs').scrollIntoView({behavior:'smooth',block:'start'})};$('artistsGrid').append(b)});$('resultCount').textContent=`${list.length} Künstler`}
+function visibleSongs(){const q=norm($('search').value.trim());return allSongs.filter(s=>(activeCategory==='all'||s.category===activeCategory)&&(!selectedArtist||s.artist===selectedArtist)&&(!q||norm(s.title).includes(q)||norm(s.artist).includes(q)))}
+function renderSongs(){
+ const list=visibleSongs();
+ $('songList').innerHTML='';
+ $('emptySongs').hidden=list.length>0;
+ if(selectedArtist){
+  $('songHeading').textContent=selectedArtist;
+  $('songSubheading').textContent=`Bekannte Tracks von ${selectedArtist}. Wähle einen Titel, um ihn direkt im Player zu starten.`;
+ }else{
+  $('songHeading').textContent='Tracks entdecken';
+  $('songSubheading').textContent='Wähle einen Titel: RAP ARCHIV sucht nach einer Hörprobe und startet sie im Player.';
+ }
+ $('trackBadge').textContent=`${list.length} Tracks`;
+ list.forEach((s,i)=>{
+  const row=document.createElement('div');
+  row.className='song-row'+(selectedSong&&selectedSong.title===s.title&&selectedSong.artist===s.artist?' playing':'');
+  const num=document.createElement('span');num.className='song-num';num.textContent=String(i+1).padStart(2,'0');
+  const info=document.createElement('div');
+  const title=document.createElement('div');title.className='song-name';title.textContent=s.title;title.style.cursor='pointer';title.title='Im Player abspielen';
+  const artist=document.createElement('div');artist.className='song-artist';artist.textContent=s.artist;
+  title.onclick=e=>{e.stopPropagation();selectSong(s)};
+  info.append(title,artist);
+  const tag=document.createElement('span');tag.className='song-tag';tag.textContent=s.category.split(' & ')[0];
+  const play=document.createElement('button');play.className='song-play';play.type='button';play.title=`${s.title} von ${s.artist} abspielen`;play.setAttribute('aria-label',play.title);play.textContent='▶';play.onclick=()=>selectSong(s);
+  row.append(num,info,tag,play);
+  row.onclick=e=>{if(e.target!==play)selectSong(s)};
+  $('songList').append(row);
+ });
+}
+let playRequest=0;
+async function resolveAudioPreview(song){
+ const endpoint=`https://itunes.apple.com/search?term=${encodeURIComponent(song.artist+' '+song.title)}&entity=song&limit=20&country=DE`;
+ const controller=new AbortController();
+ const timer=setTimeout(()=>controller.abort(),8000);
+ try{
+  const response=await fetch(endpoint,{signal:controller.signal});
+  if(!response.ok)return null;
+  const data=await response.json();
+  const wantedTitle=cleanMatch(song.title),wantedArtist=cleanMatch(song.artist);
+  const matches=(data.results||[]).map(track=>{
+   const actualTitle=cleanMatch(track.trackName||''),actualArtist=cleanMatch(track.artistName||'');
+   let titleScore=0;
+   if(actualTitle===wantedTitle)titleScore=100;
+   else if(actualTitle.includes(wantedTitle)||wantedTitle.includes(actualTitle))titleScore=65;
+   else{
+    const words=norm(song.title).split(/[^a-z0-9]+/).filter(w=>w.length>2);
+    const overlap=words.filter(w=>norm(track.trackName||'').includes(w)).length;
+    if(words.length&&overlap/words.length>=0.7)titleScore=45;
+   }
+   const artistScore=(actualArtist.includes(wantedArtist)||wantedArtist.includes(actualArtist))?40:0;
+   return {track,score:titleScore+artistScore+(track.previewUrl?5:0),titleScore,artistScore};
+  }).filter(item=>item.track.previewUrl&&item.titleScore>=45&&item.artistScore>0);
+  matches.sort((a,b)=>b.score-a.score);
+  return matches[0]?.track||null;
+ }catch(error){return null}
+ finally{clearTimeout(timer)}
+}
+async function selectSong(song){
+ const request=++playRequest;
+ selectedSong=song;
+ const query=encodeURIComponent(`${song.artist} ${song.title}`);
+ $('nowTitle').textContent=song.title;
+ $('nowArtist').textContent=song.artist;
+ $('youtubeLink').href=`https://open.spotify.com/search/${query}`;
+ $('youtubeLink').textContent='▶ Spotify öffnen';
+ $('appleMusicLink').href=`https://music.apple.com/de/search?term=${query}`;
+ $('soundcloudLink').href=`https://soundcloud.com/search/sounds?q=${query}`;
+ const localFile=matchLocalAudio(song);
+ if(localFile){
+  if(localAudioObjectUrl)URL.revokeObjectURL(localAudioObjectUrl);
+  localAudioObjectUrl=URL.createObjectURL(localFile);
+  $('videoFrame').innerHTML='<div class="audio-preview-wrap"><div class="play-symbol">▶</div><strong style="font-size:13px;text-align:center">Lokale Audiodatei</strong><audio id="selectedLocalAudio" controls autoplay style="width:100%"></audio><div class="audio-source-label">Wiedergabe von deinem Gerät — ohne YouTube.</div></div>';
+  $('selectedLocalAudio').src=localAudioObjectUrl;
+  $('youtubeLink').href='#player';
+  $('youtubeLink').textContent='Lokale Wiedergabe';
+  $('playerNote').textContent=`Spielt eine Datei von deinem Gerät: ${localFile.name}. Es wird kein YouTube verwendet.`;
+  $('localAudioStatus').textContent=`Passende Datei: ${localFile.name}`;
+  renderSongs();
+  if(window.matchMedia('(max-width: 760px)').matches)$('player').scrollIntoView({behavior:'smooth',block:'center'});
+  return;
+ }
+ $('videoFrame').innerHTML=`<div class="player-empty"><div class="play-symbol">…</div><strong>${escapeHtml(song.title)}</strong><p>${escapeHtml(song.artist)}<br>Verfügbare Hörprobe wird gesucht …</p></div>`;
+ $('playerNote').textContent='Der Player sucht nach einer offiziellen Hörprobe. Nicht für jeden Song stellt der Anbieter eine kostenlose Vorschau bereit.';
+ renderSongs();
+ if(window.matchMedia('(max-width: 760px)').matches)$('player').scrollIntoView({behavior:'smooth',block:'center'});
+ const track=await resolveAudioPreview(song);
+ if(request!==playRequest)return;
+ if(track&&track.previewUrl){
+  if(track.trackViewUrl)$('appleMusicLink').href=track.trackViewUrl;
+  $('videoFrame').innerHTML=`<div class="audio-preview-wrap"><div class="play-symbol">▶</div><strong style="font-size:13px;text-align:center">${escapeHtml(track.trackName||song.title)}</strong><div class="audio-source-label">${escapeHtml(track.artistName||song.artist)} · offizielle Hörprobe</div><audio id="streamPreview" controls autoplay preload="none" style="width:100%"></audio><div class="audio-source-label">Kostenlose Vorschau, sofern vom Musikdienst angeboten.</div></div>`;
+  $('streamPreview').src=track.previewUrl;
+  $('youtubeLink').href=track.trackViewUrl||`https://open.spotify.com/search/${query}`;
+  $('youtubeLink').textContent=track.trackViewUrl?'▶ Vollständigen Song öffnen':'▶ Spotify öffnen';
+  $('playerNote').textContent='Die Hörprobe wird direkt im RAP-ARCHIV-Player abgespielt. Für den vollständigen Titel nutze einen der Musikdienste oben; Verfügbarkeit hängt von Region und Konto ab.';
+ }else{
+  $('videoFrame').innerHTML=`<div class="player-empty"><div class="play-symbol">♫</div><strong>Keine kostenlose Hörprobe gefunden</strong><p>${escapeHtml(song.artist)} — ${escapeHtml(song.title)}<br>Öffne einen Musikdienst oder lade eine Audiodatei von deinem Gerät.</p></div>`;
+  $('playerNote').textContent='Es wurde keine passende kostenlose Hörprobe gefunden. Nutze Spotify, Apple Music oder SoundCloud, oder lade eine Audiodatei über den Offline-Player. RAP ARCHIV umgeht keine Schul- oder Kontosperren.';
+ }
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderAll(){buildFilters();renderArtists();renderSongs()}
+$('search').addEventListener('input',()=>{selectedArtist=null;renderAll()});$('categorySelect').addEventListener('change',e=>{activeCategory=e.target.value;selectedArtist=null;renderAll()});$('clearPlayer').addEventListener('click',()=>{selectedSong=null;$('nowTitle').textContent='Noch kein Song gewählt';$('nowArtist').textContent='Wähle einen Track, um loszulegen.';$('youtubeLink').href='https://open.spotify.com/';$('youtubeLink').textContent='▶ Spotify öffnen';$('videoFrame').innerHTML='<div class="player-empty"><div class="play-symbol">▶</div><strong>Dein nächster Track wartet.</strong><p>Wähle einen Song aus der Liste. Es startet nichts automatisch.</p></div>';$('playerNote').textContent='Die Wiedergabe beginnt erst nach deiner Song-Auswahl. Nutze für die Wiedergabe den eingebauten Hörproben-Player oder eigene Dateien.';renderSongs()});
+buildFilters();renderAll();
+</script>
+</body>
+</html>

@@ -26,22 +26,5 @@ let genre="Alle";const $=s=>document.querySelector(s);const safe=s=>String(s).re
 function render(){let q=$("#search").value.toLocaleLowerCase("de");let list=songs.filter(s=>(genre==="Alle"||s.genre===genre)&&(!q||(s.title+" "+s.artist+" "+s.genre).toLocaleLowerCase("de").includes(q)));const sort=$("#sort").value;if(sort==="title")list.sort((a,b)=>a.title.localeCompare(b.title,"de"));if(sort==="artist")list.sort((a,b)=>a.artist.localeCompare(b.artist,"de"));if(sort==="year")list.sort((a,b)=>b.year-a.year);$("#count").textContent=list.length+" Songs";$("#grid").innerHTML=list.map(s=>'<article class="track"><div><div class="track-top"><span class="number">TRACK '+String(s.id).padStart(2,"0")+'</span><span class="tag">'+safe(s.genre)+'</span></div><h3>'+safe(s.title)+'</h3><div class="artist">'+safe(s.artist)+'</div></div><div class="track-bottom"><span class="year">'+s.year+'</span><a class="chip" style="text-decoration:none;color:inherit" href="https://www.youtube.com/results?search_query='+encodeURIComponent(s.title+" "+s.artist)+'" target="_blank" rel="noopener noreferrer">Song öffnen ↗</a></div></article>').join("")||'<p>Keine Treffer gefunden.</p>';$("#grid").querySelectorAll(".play").forEach(b=>b.addEventListener("click",()=>playSearch(songs.find(s=>s.id===Number(b.dataset.id)))));}
 $("#search").addEventListener("input",render);$("#sort").addEventListener("change",render);document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{genre=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(c=>c.classList.toggle("active",c===b));render();}));render();
 </script>
-<script>
-/* All songs are ordinary YouTube search links; no embedded player. */
-document.querySelectorAll('.player').forEach(el=>el.remove());
-const makeSongLinks=()=>{
- document.querySelectorAll('#grid .track').forEach(card=>{
-  const bottom=card.querySelector('.track-bottom');if(!bottom||bottom.dataset.linkified)return;
-  const title=card.querySelector('h3')?.textContent||'',artist=card.querySelector('.artist')?.textContent||'',year=bottom.querySelector('.year')?.textContent||'';
-  bottom.innerHTML='<span class="year">'+year+'</span><a class="chip" style="text-decoration:none" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/results?search_query='+encodeURIComponent(title+' '+artist)+'">Song öffnen ↗</a>';
-  bottom.dataset.linkified='1';
- });
- document.querySelectorAll('#song-list .song-pick').forEach(btn=>{
-  const a=document.createElement('a');a.className='chip';a.style.cssText='display:block;text-decoration:none;color:inherit';
-  a.textContent=btn.dataset.song+' ↗';a.href='https://www.youtube.com/results?search_query='+encodeURIComponent(btn.dataset.artist+' '+btn.dataset.song);a.target='_blank';a.rel='noopener noreferrer';btn.replaceWith(a);
- });
-};
-new MutationObserver(makeSongLinks).observe(document.querySelector('main'),{childList:true,subtree:true});makeSongLinks();
-</script>
 </body>
 </html>

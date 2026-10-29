@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "strategy": "any",
+  "device": {
+    "name": "My USB key",
+    "vendorId": null,
+    "productId": null,
+    "serialNumber": null
+  },
+  "recheckIntervalSeconds": 5,
+  "lockOnRemoval": true,
+  "allowDemoMode": false,
+  "commandTimeoutSeconds": 20
+}
